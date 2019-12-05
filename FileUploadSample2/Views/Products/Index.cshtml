@@ -65,7 +65,7 @@
     <p>
         <a asp-action="Create">Create New</a>
     </p>
-    <table class="table">
+    @*<table class="table">
         <thead>
             <tr>
                 <th>
@@ -107,7 +107,7 @@
                 </tr>
             }
         </tbody>
-    </table>
+    </table>*@
     <section>
         <div class="section-padding">
             <div class="container">
@@ -123,10 +123,10 @@
                                         <div class="item">
 
                                             <img width="200" height="200" src="@it.GetInLineImgSource()" />
-                                            <h3 class="item-title"><a href="#">@it.ProductName</a></h3><!-- /.item-title -->
-                                            <span class="current-price">@it.Price</span><!-- /.current-price -->
+                                            <h3 class="item-title"><a href="#">@it.ProductName</a></h3>
+                                            <span class="current-price">@it.Price</span>
                                             <p>
-                                                Duis aute irure dolor in reprehen
+                                                @it.Description
                                             </p>
                                             @if (SignInManager.IsSignedIn(User))
                                             {
@@ -135,9 +135,8 @@
                                                 <a asp-action="Delete" asp-route-id="@it.ProductId">Details </a>
 
                                             }
-
-                                                <button class="btn btn-lg cart-btn">Add to cart</button>
-</div>
+                                               <a class="btn btn-lg cart-btn"asp-route-id="@it.ProductId" asp-action="Details">Add to cart</a>
+                                        </div>
                                     </div>
 
                                 }
@@ -145,6 +144,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
     </section>
 </body>
